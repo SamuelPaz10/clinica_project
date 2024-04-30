@@ -11,12 +11,11 @@ class Patient(models.Model):
     phone_number = models.CharField(max_length=20)
     weight = models.DecimalField()
     height = models.DecimalField()
-    gender = models.TextChoices("Male", "Female")
     gender_choices = (
         ('Male', 'Male'),
         ('Female', 'Female')
     )
-    status = models.CharField(max_length=20, choices=gender_choices, default='Males')
+    gender = models.CharField(max_length=20, choices=gender_choices, default='Males')
     # Agregar más campos según sea necesario
 
     def __str__(self):
