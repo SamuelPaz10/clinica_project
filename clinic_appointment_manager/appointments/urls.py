@@ -1,6 +1,6 @@
-from django import path
-from appointments import views
+from django.contrib import admin
+from django.urls import path
 
 urlpatterns = [
-    path('', views.hola)
+    path('admin/', admin.site.urls),
 ]
