@@ -57,13 +57,20 @@ body {
 
 }
 
-.sesion_sign {
-    height: 100%;
+#sesion2 {
+    height: 1150px
 }
 
 .logo-sesion {
     width: 100%;
 
+}
+
+form input {
+    color: #000;
+}
+form input:focus-visible {
+    color: #000;
 }
 
 footer {

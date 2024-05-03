@@ -42,7 +42,7 @@
 
 
     <div class=" container-fluid ">
-        <div class="principal row">
+        <div class="principal row" id="principal2">
             <div class="sesion-form sesion1 col-7">
                 <div class="col-12">
                     <img class="logo-sesion" src="{% static 'img/logo_original_SF.png' %}" alt="">
@@ -56,9 +56,9 @@
 
 
 
-            <div class="sesion-sign sesion-form sesion2 col-4">
+            <div class="sesion-form sesion2 col-3" id="sesion2">
 
-                <form action="/patient/" method="POST" style="color: rgb(255, 255, 255);">
+                <form action="/patient/sign" method="POST" style="color: rgb(255, 255, 255);">
 
                     {% csrf_token %}
 
@@ -68,86 +68,62 @@
                     <div class="form-group">
 
                         <label for="exampleInputEmail1">Name</label>
-                        <input type="text" class="form-control" name="username" maxlength="150" autocapitalize="none"
-                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_username" placeholder="Name">
+                        <input type="text" class="form-control" name="username" maxlength="150" placeholder="Name">
 
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Last Name</label>
-                        <input type="text" class="form-control" name="lastname" maxlength="150" autocapitalize="none"
-                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_lastname" placeholder="Last Name">
+                        <input type="text" class="form-control" name="lastname" maxlength="150" id="id_lastname" placeholder="Last Name">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" name="email" maxlength="150" autocapitalize="none"
-                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_email" placeholder="example@clinic.com">
+                        <input type="email" class="form-control" name="email" maxlength="150" id="id_email" placeholder="example@clinic.com">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone
-                            else.</small>
+                        <input type="password" class="form-control" name="password" id="id_password" placeholder="Password">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
                     </div>
 
                     <div class="form-group">
 
                         <label for="exampleInputEmail1">Birthdate</label>
-                        <input type="date" class="form-control" name="birthdate" maxlength="150" autocapitalize="none"
-                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_birthdate">
+                        <input type="date" class="form-control" name="birthdate" maxlength="150" id="id_birthdate">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Home Address</label>
-                        <input type="text" class="form-control" name="address" maxlength="150" autocapitalize="none"
-                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_address" placeholder="Col. kennedy...">
+                        <input type="text" class="form-control" name="address" maxlength="150" id="id_address" placeholder="Col. kennedy...">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Phone Number</label>
-                        <input type="text" class="form-control" name="phone" maxlength="150" autocapitalize="none"
-                            autocomplete="phone" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_phone" placeholder="12345678">
+                        <input type="text" class="form-control" name="phone" maxlength="150" id="id_phone" placeholder="12345678">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Weight (lbs)</label>
-                        <input type="text" class="form-control" name="weight" maxlength="150" autocapitalize="none"
-                            autocomplete="phone" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_weight" placeholder="120.00">
+                        <input type="text" class="form-control" name="weight" maxlength="150" id="id_weight" placeholder="00.00">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Height (m)</label>
-                        <input type="text" class="form-control" name="height" maxlength="150" autocapitalize="none"
-                            autocomplete="height" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_height" placeholder="1.70">
+                        <input type="text" class="form-control" name="height" maxlength="150" id="id_height" placeholder="0.00">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Phone Number</label>
-                        <input list="gender" class="form-control" name="phone" maxlength="150"
-                            autocapitalize="none" autocomplete="phone" autofocus="" required=""
-                            aria-describedby="id_username_helptext" id="id_phone" placeholder="12345678">
-                        <select name="gender" id="gender">
-                            <option value="Male"></option>
-                            <option value="Female"></option>
+                        <label for="exampleInputEmail1">Gender</label>
+                        <select name="gender" id="gender" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
 
-                    <div class="form-group form-check">
-                        <button type="button" class="btn btn-link">Forgot your password?</button>
-                    </div>
                     <div>
                         <button type="submit" class="btn btn-success" style="text-align: center; width: 100%">Sign In
-
                         </button>
                         <br><br>
                     </div>
