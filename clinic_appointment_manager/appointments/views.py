@@ -1,11 +1,13 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 # PATIENT
 def login(request):
     return render(request, 'patient/login_patient.html')
+
+def sign_patient(request):
+    return render(request, 'patient/sign_patient.html')
 
 def patient(request):
     return render(request, 'patient/patient_page.html')

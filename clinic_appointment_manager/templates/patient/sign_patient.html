@@ -42,7 +42,7 @@
 
 
     <div class=" container-fluid ">
-        <div class="principal row" id="principal2">
+        <div class="principal row">
             <div class="sesion-form sesion1 col-7">
                 <div class="col-12">
                     <img class="logo-sesion" src="{% static 'img/logo_original_SF.png' %}" alt="">
@@ -62,44 +62,94 @@
 
                     {% csrf_token %}
 
-                    <!-- {{form}} -->
                     <p style="font-size: 40px; color: rgb(255, 255, 255); text-align: center; margin-top: 40px;">
-                        Login
+                        Sign In
                     </p>
                     <div class="form-group">
 
-                        <label for="exampleInputEmail1">User</label>
+                        <label for="exampleInputEmail1">Name</label>
                         <input type="text" class="form-control" name="username" maxlength="150" autocapitalize="none"
                             autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
-                            id="id_username" placeholder="User">
-                        <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter email"> -->
+                            id="id_username" placeholder="Name">
 
                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Last Name</label>
+                        <input type="text" class="form-control" name="lastname" maxlength="150" autocapitalize="none"
+                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_lastname" placeholder="Last Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" name="email" maxlength="150" autocapitalize="none"
+                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_email" placeholder="example@clinic.com">
+                    </div>
+
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone
                             else.</small>
                     </div>
+
+                    <div class="form-group">
+
+                        <label for="exampleInputEmail1">Birthdate</label>
+                        <input type="date" class="form-control" name="birthdate" maxlength="150" autocapitalize="none"
+                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_birthdate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Home Address</label>
+                        <input type="text" class="form-control" name="address" maxlength="150" autocapitalize="none"
+                            autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_address" placeholder="Col. kennedy...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone Number</label>
+                        <input type="text" class="form-control" name="phone" maxlength="150" autocapitalize="none"
+                            autocomplete="phone" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_phone" placeholder="12345678">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Weight (lbs)</label>
+                        <input type="text" class="form-control" name="weight" maxlength="150" autocapitalize="none"
+                            autocomplete="phone" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_weight" placeholder="120.00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Height (m)</label>
+                        <input type="text" class="form-control" name="height" maxlength="150" autocapitalize="none"
+                            autocomplete="height" autofocus="" required="" aria-describedby="id_username_helptext"
+                            id="id_height" placeholder="1.70">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone Number</label>
+                        <input list="gender" class="form-control" name="phone" maxlength="150"
+                            autocapitalize="none" autocomplete="phone" autofocus="" required=""
+                            aria-describedby="id_username_helptext" id="id_phone" placeholder="12345678">
+                        <select name="gender" id="gender">
+                            <option value="Male"></option>
+                            <option value="Female"></option>
+                        </select>
+                    </div>
+
                     <div class="form-group form-check">
                         <button type="button" class="btn btn-link">Forgot your password?</button>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-success" style="text-align: center; width: 100%">Login
+                        <button type="submit" class="btn btn-success" style="text-align: center; width: 100%">Sign In
 
                         </button>
                         <br><br>
-
-                    </div>
-
-                </form>
-
-                <form action="/patient/sign">
-                    <div class="form-group form-check">
-                        <button type="submit" class="btn btn-info" style="text-align: center; width: 100%">
-                            Sign In
-                        </button>
                     </div>
                 </form>
             </div>
