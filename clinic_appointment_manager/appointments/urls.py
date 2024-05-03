@@ -1,6 +1,12 @@
-from django import path
-from appointments import views
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', views.hola)
+    path('', views.login),
+    path('patient/', views.patient),
+    path('patient/form', views.patient_form),
+    
+    path('login_doctor', views.login_doctor),
+    path('doctor/', views.doctor),
+    path('doctor/form', views.doctor_form),
 ]

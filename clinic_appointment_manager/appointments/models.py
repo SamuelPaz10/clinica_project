@@ -27,8 +27,7 @@ class Doctor(models.Model):
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=20)
     specialization = models.CharField(max_length=100)
-    available_hours = models.JSONField()
-    available_days = models.JSONField()
+    available_hours = models.DateTimeField
     # Agregar más campos según sea necesario
 
     def __str__(self):
