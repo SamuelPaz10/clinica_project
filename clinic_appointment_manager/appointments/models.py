@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import json
 
 ### REVISAR LOS NUEVOS CAMPOS Y LOS TIPOS DE DATOS
 class Patient(models.Model):
@@ -26,7 +26,23 @@ class Doctor(models.Model):
     last_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     specialization = models.CharField(max_length=100)
+    available_datetime = models.TextField(default='[]')
     
+    def get_available_datetime(self):
+        return json.loads(self.available_datetime)
+
+    def agg_available_datetime(self, datetime):
+        datetimes = self.get_available_datetime()
+        datetimes.append(datetime)
+        self.available_datetime = json.dumps(datetimes)
+        self.save()
+
+    def delete_available_datetime(self, datetime):
+        datetimes = self.get_available_datetime()
+        if datetime in datetimes:
+            datetimes.remove(datetime)
+            self.available_datetime = json.dumps(datetimes)
+            self.save()
     # Agregar más campos según sea necesario
 
     def __str__(self):
