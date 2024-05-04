@@ -19,7 +19,8 @@ class Patient(models.Model):
     # Agregar más campos según sea necesario
 
     def __str__(self):
-        return self.last_name
+        #return self.user.username
+        return f"{self.user.username} - {self.last_name}"
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
@@ -52,6 +53,13 @@ class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     reason = models.TextField()
+    avaible_datetime = (
+        ('Lun 01-05-2024/10:00', 'Lun 01-05-2024/10:00'),
+        ('Cancelled', 'Cancelled'),
+        ('Completed', 'Completed'),
+        ('Delayed', 'Delayed')
+        )
+    avaible_datetime = models.CharField(max_length=20, choices=avaible_datetime, default='Scheduled')
     status_choices = (
         ('Scheduled', 'Scheduled'),
         ('Cancelled', 'Cancelled'),
@@ -62,4 +70,4 @@ class Appointment(models.Model):
     # Agregar más campos según sea necesario
 
     def __str__(self):
-        return f"{self.patient} - {self.doctor} - {self.date} {self.time} - {self.status}"
+        return f"{self.patient} - {self.doctor} - {self.status}"
