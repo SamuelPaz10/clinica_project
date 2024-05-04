@@ -65,10 +65,13 @@
                     <p style="font-size: 40px; color: rgb(255, 255, 255); text-align: center; margin-top: 40px;">
                         Sign In
                     </p>
+                    <p style="color: rgb(219, 95, 95); text-align: center; font-size: larger;">
+                        {{error}}
+                    </p>
                     <div class="form-group">
 
                         <label for="exampleInputEmail1">Name</label>
-                        <input type="text" class="form-control" name="username" maxlength="150" placeholder="Name">
+                        <input type="text" class="form-control" name="username" maxlength="150" id="id_username" placeholder="Name">
 
                     </div>
 
@@ -126,6 +129,7 @@
                         <button type="submit" class="btn btn-success" style="text-align: center; width: 100%">Sign In
                         </button>
                         <br><br>
+                        
                     </div>
                 </form>
             </div>

@@ -1,36 +1,53 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
+from django.db import IntegrityError
 
 # Create your views here.
 # PATIENT
-def login(request):
-    return render(request, 'patient/login_patient.html')
+def login_user(request):
+    if request.method == 'GET':
+        return render(request, 'patient/login_patient.html')
+    else:
+        user = authenticate(
+            request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'patient/login_patient.html', {
+                "error": "Username or password is incorrect."
+                })
+            
+        else:
+            login(request, user)
+            return redirect('patient/')
 
 def sign_patient(request):
     
     if request.method == 'GET':
         return render(request, 'patient/sign_patient.html')
-    else: 
+    else:
         try:
             user = User.objects.create_user(username=request.POST['username'],
-                                            lastname=request.POST['lastname'],
-                                            email=request.POST['email'],
-                                            password=request.POST['password'],
-                                            birthdate=request.POST['birthdate'],
-                                            address=request.POST['address'],
-                                            phone=request.POST['phone'],
-                                            weight=request.POST['weight'],
-                                            height=request.POST['height'],
-                                            gender=request.POST['gender'])
+                                                last_name=request.POST['lastname'],
+                                                email=request.POST['email'],
+                                                password=request.POST['password'],
+                                                #birthdate=request.POST['birthdate'],
+                                                #home_address=request.POST['address'],
+                                                #phone_number=request.POST['phone'],
+                                                #weight=request.POST['weight'],
+                                                #height=request.POST['height'],
+                                                #gender=request.POST['gender']
+                                                )
             user.save()
+            print(user)
             print('User created successfully')   
-            #return HttpResponse('User created successfully')
-            return render(request, 'patient/patient_page.html')
-        except:
-            return HttpResponse('Username already exists')
-    
+            login(request, user)
+            return redirect ('/patient/')
+        except IntegrityError:
+            return render(request, 'patient/sign_patient.html', {
+                "error": 'Username already exists.'
+            })
+        
+        
     
 
 def patient(request):
@@ -39,7 +56,14 @@ def patient(request):
 def patient_form(request):
     return render(request, 'patient/patient_form.html')
 
+def patient_profile(request):
+    return render(request, 'patient/patient_profile.html')
     
+def logout_user(request):
+    logout(request)
+    return redirect('/')
+    
+###############################    
 # DOCTOR
 def login_doctor(request):
     return render(request, 'doctor/login_doctor.html')

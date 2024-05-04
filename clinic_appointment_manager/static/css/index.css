@@ -69,6 +69,7 @@ body {
 form input {
     color: #000;
 }
+
 form input:focus-visible {
     color: #000;
 }
