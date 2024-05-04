@@ -68,7 +68,17 @@
 
     <!-- CUERPO DE LA PÁGINA -->
 
+    <!-- {% block content %}
+    {% endblock %} -->
 
+    <form action="/patient/" method="POST">
+        {{form.as_p}}
+        <button>
+            Add appointment
+        </button>
+    </form>
+
+    
 
 
     <!-- MODAL -->

@@ -53,13 +53,11 @@ class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     reason = models.TextField()
-    avaible_datetime = (
+    available_datetimes = (
         ('Lun 01-05-2024/10:00', 'Lun 01-05-2024/10:00'),
-        ('Cancelled', 'Cancelled'),
-        ('Completed', 'Completed'),
-        ('Delayed', 'Delayed')
+        ('Lun 01-05-2024/10:00', 'Lun 01-05-2024/10:00'),
         )
-    avaible_datetime = models.CharField(max_length=20, choices=avaible_datetime, default='Scheduled')
+    available_datetime = models.CharField(max_length=20, choices=available_datetimes, default='Scheduled')
     status_choices = (
         ('Scheduled', 'Scheduled'),
         ('Cancelled', 'Cancelled'),

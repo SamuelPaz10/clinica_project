@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from .forms import AppointmentForm
 
 # Create your views here.
 # PATIENT
@@ -54,7 +55,9 @@ def patient(request):
     return render(request, 'patient/patient_page.html')
 
 def patient_form(request):
-    return render(request, 'patient/patient_form.html')
+    return render(request, 'patient/patient_form.html', {
+        'form': AppointmentForm
+    })
 
 def patient_profile(request):
     return render(request, 'patient/patient_profile.html')
