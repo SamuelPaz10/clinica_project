@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 ### REVISAR LOS NUEVOS CAMPOS Y LOS TIPOS DE DATOS
 class Patient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
@@ -23,6 +25,7 @@ class Patient(models.Model):
         return self.name
 
 class Doctor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
     name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
