@@ -5,10 +5,7 @@ from django.contrib.auth.models import User
 ### REVISAR LOS NUEVOS CAMPOS Y LOS TIPOS DE DATOS
 class Patient(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
-    name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=50, default="1234")
     birthdate = models.DateField()
     home_address = models.TextField()
     phone_number = models.CharField(max_length=20)
@@ -22,27 +19,22 @@ class Patient(models.Model):
     # Agregar más campos según sea necesario
 
     def __str__(self):
-        return self.name
+        return self.last_name
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
-    name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=50, default="1234")
     phone_number = models.CharField(max_length=20)
     specialization = models.CharField(max_length=100)
     
     # Agregar más campos según sea necesario
 
     def __str__(self):
-        return self.name
+        return self.last_name
     
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    date = models.DateField()
-    time = models.TimeField()
     reason = models.TextField()
     status_choices = (
         ('Scheduled', 'Scheduled'),
