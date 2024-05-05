@@ -4,7 +4,7 @@ import json
 
 ### REVISAR LOS NUEVOS CAMPOS Y LOS TIPOS DE DATOS
 class Patient(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     last_name = models.CharField(max_length=100)
     birthdate = models.DateField()
     home_address = models.TextField()
@@ -23,7 +23,7 @@ class Patient(models.Model):
         return f"{self.user.username} {self.last_name}"
 
 class Doctor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     last_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
     specialization = models.CharField(max_length=100)
