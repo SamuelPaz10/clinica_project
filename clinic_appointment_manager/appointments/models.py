@@ -50,7 +50,7 @@ class Doctor(models.Model):
         return f"{self.user.username} {self.last_name} - {self.specialization}"
     
 class Appointment(models.Model):
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    patient = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     reason = models.TextField()
     available_datetimes = (
