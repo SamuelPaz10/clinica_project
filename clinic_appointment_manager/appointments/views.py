@@ -60,19 +60,16 @@ def patient(request):
 
 # CARGA LA PÁGINA PARA AGENDAR CITAS
 def appointments_create(request):
-
     if request.method == "GET":
         return render(
-            request, "patient/appointments_create.html", {"form": AppointmentForm}
+            request, 'patient/appointments_create.html', {'form': AppointmentForm}
         )
     else:
         form_appointments = AppointmentForm(request.POST)
         new_appointments = form_appointments.save(commit=False)
         new_appointments.user = request.user
         new_appointments.save()
-        return render(
-            request, "/patient/", {"form": AppointmentForm}
-        )
+        return redirect("/patient/")
 
 
 def patient_profile(request):

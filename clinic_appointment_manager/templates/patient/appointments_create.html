@@ -81,7 +81,7 @@
 
                 <h5 class="card-title" style="text-align: center;">SCHEDULE AN APPOINTMENTS</h5>
 
-                <form action="/patient/" method="POST">
+                <form action="/appointments/schedule/" method="POST">
                     
                     {% csrf_token %}
                     {{form.as_p}}
