@@ -20,7 +20,7 @@
 
 <body>
 
-
+<!-- MENÚ DE NAVEGACIÓN -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a class="navbar-brand" href="#">
             <img class="menu-icono" src="{% static 'img/logo_minimalista_blanco_SF.png' %}" alt="">
@@ -41,8 +41,11 @@
     </nav>
 
 
+    <!-- CUERPO DE LA PÁGINA -->
     <div class=" container-fluid ">
         <div class="principal row" id="principal2">
+            
+            <!-- DISEÑO CON IMÁGENES -->
             <div class="sesion-form sesion1 col-7">
                 <div class="col-12">
                     <img class="logo-sesion" src="{% static 'img/logo_original_SF.png' %}" alt="">
@@ -55,14 +58,13 @@
             </div>
 
 
-
+            <!-- DISEÑO DE FORMULARIOS -->
             <div class="sesion-sign sesion-form sesion2 col-3">
 
                 <form action="/" method="POST" style="color: rgb(255, 255, 255);">
 
                     {% csrf_token %}
 
-                    <!-- {{form}} -->
                     <p style="font-size: 40px; color: rgb(255, 255, 255); text-align: center; margin-top: 40px;">
                         Login
                     </p>

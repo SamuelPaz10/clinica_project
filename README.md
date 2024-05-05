@@ -11,4 +11,4 @@ URL del proyecto
 https://github.com/SamuelPaz10/clinica_project/tree/main
 
 URL del video
-
+https://youtu.be/oxmTiA8iv54
