@@ -31,12 +31,6 @@ def sign_patient(request):
                                                 last_name=request.POST['lastname'],
                                                 email=request.POST['email'],
                                                 password=request.POST['password'],
-                                                #birthdate=request.POST['birthdate'],
-                                                #home_address=request.POST['address'],
-                                                #phone_number=request.POST['phone'],
-                                                #weight=request.POST['weight'],
-                                                #height=request.POST['height'],
-                                                #gender=request.POST['gender']
                                                 )
             user.save()
             print(user)
@@ -54,8 +48,8 @@ def sign_patient(request):
 def patient(request):
     return render(request, 'patient/patient_page.html')
 
-def patient_form(request):
-    return render(request, 'patient/patient_form.html', {
+def appointments_create(request):
+    return render(request, 'patient/appointments_create.html', {
         'form': AppointmentForm
     })
 

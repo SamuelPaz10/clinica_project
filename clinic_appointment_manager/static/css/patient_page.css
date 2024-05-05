@@ -55,6 +55,10 @@ nav div ul li div a {
     margin-top: 20px;
 }
 
+#sesion3 {
+    background-color: rgb(114, 73, 153) !important;
+}
+
 .button-opcion {
     color: #343A40;
 }
@@ -67,6 +71,8 @@ nav div ul li div a {
 .button-opcion:focus {
     text-decoration: none;
 }
+
+
 
 footer {
     margin-top: auto;

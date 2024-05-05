@@ -71,14 +71,33 @@
     <!-- {% block content %}
     {% endblock %} -->
 
-    <form action="/patient/" method="POST">
-        {{form.as_p}}
-        <button>
-            Add appointment
-        </button>
-    </form>
 
-    
+    <div class="container_fluid">
+        <div class="row">
+            <div class="card body form-group col-6" id="sesion-3" style="background-color: rgb(176, 192, 202, 0.8);
+                display: flex; flex-wrap: wrap;
+                margin-right: auto; margin-left: auto; margin-top: 40px;
+                padding: 20px;">
+
+                <h5 class="card-title" style="text-align: center;">SCHEDULE AN APPOINTMENTS</h5>
+
+                <form action="/patient/" method="POST">
+                    
+                    {% csrf_token %}
+                    {{form.as_p}}
+
+                    <button type="submit" class="button-opcion btn btn-success" style="color: aliceblue !important;">
+                        Save
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 
     <!-- MODAL -->
