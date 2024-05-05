@@ -20,7 +20,7 @@ class Patient(models.Model):
 
     def __str__(self):
         #return self.user.username
-        return f"{self.user.username} - {self.last_name}"
+        return f"{self.user.username} {self.last_name}"
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1, unique=True)
@@ -47,7 +47,7 @@ class Doctor(models.Model):
     # Agregar más campos según sea necesario
 
     def __str__(self):
-        return self.last_name
+        return f"{self.user.username} {self.last_name} - {self.specialization}"
     
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
@@ -68,4 +68,4 @@ class Appointment(models.Model):
     # Agregar más campos según sea necesario
 
     def __str__(self):
-        return f"{self.patient} - {self.doctor} - {self.status}"
+        return f"{self.patient} || {self.doctor} || {self.status} || {self.available_datetime}"
